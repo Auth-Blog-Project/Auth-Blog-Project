@@ -1,5 +1,7 @@
 'use strict';
 
+const jwt = require('jsonwebtoken');
+
 class DataCollection {
   constructor(model) {
     this.model = model;
@@ -18,9 +20,15 @@ class DataCollection {
     return this.model.create(record);
   }
 
-  update(id, data) {
+  update(id, data, author) {
+    
     return this.model.findOne({ where: { id } })
-      .then(record => record.update(data));
+      .then(record => {
+        record.update(data);
+        record.author = author;
+        return record;
+      }
+    ); 
   }
 
   delete(id) {
