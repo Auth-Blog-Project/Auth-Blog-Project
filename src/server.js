@@ -10,8 +10,8 @@ const notFoundHandler = require('./error-handlers/404');
 const errorHandler = require('./error-handlers/500');
 const logger = require('./middleware/logger');
 const authRoutes = require('./routes/auth');
-const v1Routes = require('./routes/v1');
-const v2Routes = require('./routes/v2');
+const pageRoutes = require('./routes/pages');
+const articleRoutes = require('./routes/articles');
 
 app.use(cors());
 app.use(morgan('dev'));
@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
 //routes
-app.use('/api/v1', v1Routes);
-app.use('/api/v2', v2Routes);
+app.use('/pages', pageRoutes);
+app.use('/pages', articleRoutes);
 app.use(authRoutes);
 
 // Catch-alls
