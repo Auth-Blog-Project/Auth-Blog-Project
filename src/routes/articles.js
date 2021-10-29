@@ -12,7 +12,6 @@ const acl = require('../middleware/auth/acl');
 const bearerAuth = require('../middleware/auth/bearer');
 
 router.use( (req, res, next) => {
-  console.log('raawwwwwr')
   const modelName = 'articles';
   if (dataModules[modelName]) {
     req.model = dataModules[modelName];
@@ -22,11 +21,11 @@ router.use( (req, res, next) => {
   }
 });
 
-router.get('/:page_id/articles', bearerAuth, acl('read'), handleGetAll);
-router.get('/:page_id/articles/:article_id', bearerAuth, acl('read'), handleGetOne);
-router.post('/:page_id/articles', bearerAuth, acl('create'), handleCreate);
-router.put('/:page_id/articles/:article_id', bearerAuth, acl('update'), handleUpdate);
-router.delete('/:page_id/articles/:article_id', bearerAuth, acl('delete'), handleDelete);
+router.get('/pages/:page_id/articles', bearerAuth, acl('read'), handleGetAll);
+router.get('/pages/:page_id/articles/:article_id', bearerAuth, acl('read'), handleGetOne);
+router.post('/pages/:page_id/articles', bearerAuth, acl('create'), handleCreate);
+router.put('/pages/:page_id/articles/:article_id', bearerAuth, acl('update'), handleUpdate);
+router.delete('/pages/:page_id/articles/:article_id', bearerAuth, acl('delete'), handleDelete);
 
 async function handleGetAll(req, res) {
   let allRecords = await req.model.get();

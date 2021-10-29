@@ -16,10 +16,12 @@ const DATABASE_CONFIG = process.env.NODE_ENV === 'production' ? {
 } : {};
 
 const sequelize = new Sequelize(DATABASE_URL, DATABASE_CONFIG);
-
 const articles = articleModel(sequelize, DataTypes);
 const pages = pageModel(sequelize, DataTypes);
 const users = userModel(sequelize, DataTypes);
+
+// articles.belongsTo(users, {foreignKey: 'id'});
+// articles.belongsTo(pages, {foreignKey: 'id'});
 
 module.exports = {
   db: sequelize,

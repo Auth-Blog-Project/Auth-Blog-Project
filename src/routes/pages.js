@@ -9,7 +9,6 @@ const acl = require('../middleware/auth/acl');
 const bearerAuth = require('../middleware/auth/bearer');
 
 router.use( (req, res, next) => {
-  console.log('blaahhhhhhhhhhhhhhhhhhhhhhhhhh')
   const modelName = 'pages';
   if (dataModules[modelName]) {
     req.model = dataModules[modelName];

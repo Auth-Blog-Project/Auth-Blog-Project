@@ -73,7 +73,7 @@
     * requires create capability
 
   * Path: /page/:page_id
-    * creates an article at the supecified page
+    * creates an article at the specified page
     * requires create capability
 
 * REST Method PUT
@@ -94,6 +94,6 @@
     * requires delete capability
 
   * Path: /page/:page_id/article/:id
-    * delets the specified article
+    * deletes the specified article
     * returns an empty object if successful
     * requires delete capability
