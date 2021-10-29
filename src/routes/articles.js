@@ -35,7 +35,7 @@ async function handleGetAll(req, res) {
 async function handleGetOne(req, res) {
   const id = req.params.article_id;
   req.body.page_id = req.params.page_id;
-  let theRecord = await req.model.get(id)
+  let theRecord = await req.model.get(id);
   res.status(200).json(theRecord);
 }
 
@@ -43,7 +43,7 @@ async function handleCreate(req, res) {
   let obj = req.body;
   req.body.page = req.params.page_id;
   jwt.verify(req.token, process.env.SECRET, function(err, decoded) {
-    req.body.author = decoded.username
+    req.body.author = decoded.username;
   });
   let newRecord = await req.model.create(obj);
   res.status(201).json(newRecord);
@@ -54,10 +54,10 @@ async function handleUpdate(req, res) {
   const obj = req.body;
   let oldArticle = null;
   try {
-  oldArticle = await articles.get(id);
-} catch(e) {
-  console.log(e);
-}
+    oldArticle = await articles.get(id);
+  } catch(e) {
+    console.log(e);
+  }
   let updatedRecord = await req.model.update(id, obj, oldArticle.author); 
   res.status(200).json(updatedRecord);
 }

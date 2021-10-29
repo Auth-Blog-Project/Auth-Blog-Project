@@ -9,7 +9,7 @@ class DataCollection {
 
   get(id) {
     if (id) {
-      return this.model.findOne({ id });
+      return this.model.findOne({where: { id }});
     }
     else {
       return this.model.findAll({});
@@ -27,8 +27,7 @@ class DataCollection {
         record.update(data);
         record.author = author;
         return record;
-      }
-    ); 
+      }); 
   }
 
   delete(id) {
