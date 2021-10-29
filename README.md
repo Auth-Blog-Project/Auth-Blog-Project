@@ -8,7 +8,7 @@
 
 ## About the Application
 
-  This auth api will provide the backend for an app that will allow users to create posts on certain pages, assuming they have the proper permissions given their role. Admins will be able to create pages for other users to add posts to.
+  This auth api will provide the backend for an app that will allow users to create posts on certain pages, assuming they have the proper permissions given their role. Admins will be able to create pages for other users to add posts to. We choose 'articles' as the resource name for all posts that are made on certain pages.
 
 ## Summary of Problem Domain
 
@@ -60,7 +60,7 @@
 
 * REST Method POST
   * Path: /signin
-    * T\takes a request with an "Authorization" header with the value Basic TOKEN that contains a properly encoded username and password combination
+    * takes a request with an "Authorization" header with the value Basic TOKEN that contains a properly encoded username and password combination
     * returns the user's data and a JWT token as output after account creation, or a proper error response if the request wasn't successful
 
   * Path: /signup
