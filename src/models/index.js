@@ -20,8 +20,8 @@ const articles = articleModel(sequelize, DataTypes);
 const pages = pageModel(sequelize, DataTypes);
 const users = userModel(sequelize, DataTypes);
 
-// articles.belongsTo(users, {foreignKey: 'id'});
-// articles.belongsTo(pages, {foreignKey: 'id'});
+articles.belongsTo(users);
+articles.belongsTo(pages);
 
 module.exports = {
   db: sequelize,
