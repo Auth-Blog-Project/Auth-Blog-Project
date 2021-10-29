@@ -20,27 +20,27 @@ afterAll(async (done) => {
 });
 
 let users = {
-  admin: { username: 'admin', password: 'password', role: 'admin' },
+  admin: { username: 'admin1', password: 'password', role: 'admin' },
   user: { username: 'user', password: 'password', role: 'user' },
   writer: { username: 'writer', password: 'password', role: 'writer' },
 };
 
 describe('Articles Router with Auth', () => {
-  it('can writer to add posts to a specific page', async (done) => {
-    //create some pages to add articles to for tests that follow
-    const token = jwt.sign(users['admin'], process.env.SECRET);
-    await server.post('/signup').send(users['admin']);
+  // it('can writer to add posts to a specific page', async (done) => {
+  //   //create some pages to add articles to for tests that follow
+  //   const token = jwt.sign(users['admin'], process.env.SECRET);
+  //   await server.post('/signup').send(users['admin']);
 
-    const page1 = {'topic': 'movies'};
-    const page2 = {'topic': 'cars'};
-    const page3 = {'topic': 'places'};
+  //   const page1 = {'topic': 'movies'};
+  //   const page2 = {'topic': 'cars'};
+  //   const page3 = {'topic': 'places'};
 
-    await server.post('/pages')
-      .set('Authorization', 'Bearer ' + token).send(page1);
-    await server.post('/pages')
-      .set('Authorization', 'Bearer ' + token).send(page2);  
-    await server.post('/pages')
-      .set('Authorization', 'Bearer ' + token).send(page3);
+    // await server.post('/pages')
+    //   .set('Authorization', 'Bearer ' + token).send(page1);
+    // await server.post('/pages')
+    //   .set('Authorization', 'Bearer ' + token).send(page2);  
+    // await server.post('/pages')
+    //   .set('Authorization', 'Bearer ' + token).send(page3);
 
 
     // const movie1 = {title: 'The Lord of the Rings: The Fellowship of the Ring', document: 'Elit reprehenderit irure culpa quis id in laborum laborum.', keywords: ['adventure', 'fantasy'] };
@@ -64,5 +64,5 @@ describe('Articles Router with Auth', () => {
     //   .set('Authorization', 'Bearer ' + token2).send(movie3);
 
     //expect(res.status).toBe(201);
-  });
+  // });
 });
