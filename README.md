@@ -30,9 +30,9 @@
 
 ## Links to application deployment
 
-  App deployed on Heroku [here]()
+  App deployed on Heroku [here](https://auth-blog-api.herokuapp.com/)
 
-  Pull req from dev found [here]()
+  Pull req from dev found [here](https://github.com/Auth-Blog-Project/Auth-Blog-Project/pull/3)
 
 ## Uml Diagram
 
